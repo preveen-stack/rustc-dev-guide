@@ -515,6 +515,38 @@ squash 251a6ac committed file6.txt
 #                    keep only this commit's m
 ....
 ```
+The commit message editor will come up and show all the commit messages
+```
+commit messages screen
+```
+We need to change to one single commit message as all the commits will be squashed 
+into one single commit now
+```
+# This is a combination of 3 commits.
+# This is the 1st commit message:
+
+committed file4.txt, file5.txt, file6.txt
+
+# This is the commit message #2:
+
+
+# This is the commit message #3:
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+```
+The rebase result will be shown
+```
+[detached HEAD 2f2f1e1] committed file4.txt, file5.txt, file6.txt
+ Date: Wed May 10 20:35:03 2023 +0530
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file4.txt
+ create mode 100644 file5.txt
+ create mode 100644 file6.txt
+Successfully rebased and updated refs/heads/fix-branch.
+```
 ## No-Merge Policy
 
 The rust-lang/rust repo uses what is known as a "rebase workflow." This means
