@@ -264,6 +264,9 @@ There is a workaround in [the issue][#77620-workaround].
 [#77620]: https://github.com/rust-lang/rust/issues/77620
 [#77620-workaround]: https://github.com/rust-lang/rust/issues/77620#issuecomment-705228229
 
+### Failed to push some refs
+
+
 ## Rebasing and Conflicts
 
 When you edit your code locally, you are making changes to the version of
@@ -452,6 +455,8 @@ to get used to its output format. You may also find Git's documentation on the
 command useful, especially their ["Examples" section][range-diff-example-docs].
 
 [range-diff-example-docs]: https://git-scm.com/docs/git-range-diff#_examples
+
+### Squash your commits
 
 ## No-Merge Policy
 
