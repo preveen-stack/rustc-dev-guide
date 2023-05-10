@@ -458,6 +458,13 @@ command useful, especially their ["Examples" section][range-diff-example-docs].
 
 ### Squash your commits
 
+When you fork from base repo to your personal repo and branch out to do a fix, 
+it may take multiple commits to your fix branch before you decide to raise a 
+pull request. It is a desirable to have merge all your commits into a single 
+commits for the pull request so that it is easier to review and to make the 
+history tidy. Merging of multiple commits into single commits is known as 
+squashing the commits 
+
 ## No-Merge Policy
 
 The rust-lang/rust repo uses what is known as a "rebase workflow." This means
