@@ -547,6 +547,14 @@ The rebase result will be shown
  create mode 100644 file6.txt
 Successfully rebased and updated refs/heads/fix-branch.
 ```
+Now the git log will look like this 
+```
+$ git log --oneline
+2f2f1e1 (HEAD -> fix-branch) committed file4.txt, file5.txt, file6.txt
+7b784c5 (master) -committed file3.txt
+7e316d1 committed file2.txt
+d0cbf5e committed file1.txt
+```
 ## No-Merge Policy
 
 The rust-lang/rust repo uses what is known as a "rebase workflow." This means
