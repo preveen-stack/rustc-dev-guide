@@ -465,6 +465,56 @@ commits for the pull request so that it is easier to review and to make the
 history tidy. Merging of multiple commits into single commits is known as 
 squashing the commits 
 
+After the changes your fix-branch would look like this 
+```
+$git log --oneline
+251a6ac (HEAD -> fix-branch, dev) committed file6.txt
+cfa1b9f committed file5.txt
+da75fa1 committed file4.txt
+7b784c5 (master) -committed file3.txt
+7e316d1 committed file2.txt
+d0cbf5e committed file1.txt
+```
+check the line which indicates where master is at and copy the short commit id 
+```
+$git rebase -i master
+```
+this command will show the commits in the configured editor 
+```
+pick da75fa1 committed file4.txt
+pick cfa1b9f committed file5.txt
+pick 251a6ac committed file6.txt
+
+# Rebase 7b784c5..251a6ac onto 7b784c5 (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only th
+....
+```
+We can see the commits listed on the top of the editor. In order to squash the 
+the commits we have to change the word 'pick' to 'squash' against each commits.
+Here is how it would look like after the change.
+```
+squash da75fa1 committed file4.txt
+squash cfa1b9f committed file5.txt
+squash 251a6ac committed file6.txt
+
+# Rebase 7b784c5..251a6ac onto 7b784c5 (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's m
+....
+```
 ## No-Merge Policy
 
 The rust-lang/rust repo uses what is known as a "rebase workflow." This means
