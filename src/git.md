@@ -266,6 +266,30 @@ There is a workaround in [the issue][#77620-workaround].
 
 ### Failed to push some refs
 
+After a rebase, when you push the branch to the remote we may encounter this error
+
+```
+ ! [rejected]            rename_GC_MethodTypesIterator -> rename_GC_MethodTypesIterator (non-fast-forward)
+error: failed to push some refs to 'github.com:preveen-stack/openj9.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+This is becasuse the commit history of the local branch is different from the 
+remote copy. To solve this problem we have to use --force option to the push
+```
+$ git push --force
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (10/10), 1.68 KiB | 1.68 MiB/s, done.
+Total 10 (delta 9), reused 2 (delta 2), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 7 local objects.
+To github.com:preveen-stack/openj9.git
+ + cf7539904...be25a6d44 rename_GC_MethodTypesIterator -> rename_GC_MethodTypesIterator (forced update)
+```
 
 ## Rebasing and Conflicts
 
